@@ -9,48 +9,16 @@
 <body>
  
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/api.js"></script>
     <script>
-
         const testPetfinderAPI = () => {
-            let token = null;
-
-            // 
-            // Pet finder uses oAUTH to authenticate requests.
-            // This first request is to give petfiner the client ID and client secret.
-            // Petfinder will then return an "access_token" which is then passed to the API calls
-            //
-            let client_id = "vF2jwT6R9WbdFFjLd0cPFCra1m7vJJHcM1fCV3nxsgtDqXncht";
-            let client_secret = "BVYB9yfwFQ6u2yvWlIol7QiEF6xTY2bI3FHlYpF4";
-
-            // Create the oauth request
-            let auth = axios.create({
-                baseURL: "https://api.petfinder.com/v2/oauth2/token",
-                crossorigin: true
-            });
-            
-            // Send the authentication credentials
-            auth.post(`/`, `grant_type=client_credentials&client_id=${client_id}&client_secret=${client_secret}`)
-            .then((res) => {
-                // If the code ends up here, then authentication was successful
-                token = res.data.access_token;
-
-                // The  access token must be included in the header, see the "Authorization" below.
-                const instance = axios.create({
-                    baseURL: 'https://api.petfinder.com',
-                    headers: {'Authorization': 'Bearer '+ token}
-                });
-
-                // FINALLY WE CAN MAKE AN API CALL OMG :notlikethis:
-                instance.get('/v2/animals?type=dog')
-                .then(response => {
-                    // Ayy we get data
-                    alert(response.data);
-                })
-            });
+            pfAPICall('/v2/animals?type=dog', (data) => {
+                alert("Successfully got data! Check the console for the data");
+                console.log(data);
+            })
         }
 
         testPetfinderAPI();
-
     </script>
 
 </body>
