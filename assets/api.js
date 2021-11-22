@@ -27,7 +27,22 @@
 //    issued_date: "11-22-21"
 // }
 //
-let access_key = {token: "", expiration: 0, issued: 0, issued_date: ""};
+const getAccessKey = () => {
+    // If we haven't loaded the access key from localStorage yet, 
+    // (usually on page load, or first visit)
+    // then try to get it from local storage
+    let access_key = {};
+
+    if(localStorage.petProject) {
+        // TODO: update local storage to handle both the access key and favorites
+        let ls = JSON.parse(localStorage.petProject);
+        access_key = ls;
+    } else {
+        access_key = {token: "", expiration: 0, issued: 0, issued_date: ""};
+    }
+
+    return access_key;
+}
 
 // Returns a string of the current date in the format of "MM-DD-YYYY"
 const getCurrentDate = () => {
@@ -44,6 +59,8 @@ const getCurrentTimestamp = () => {
 // This is an internal function and does not need to be called from any outside script
 // returns true if the access token is expired
 const pfIsTokenExpired = () => {
+
+    let access_key = getAccessKey();
 
     // If there is no token, then it's expired
     if(access_key.token === "") {
@@ -90,6 +107,7 @@ const pfAuthenticate = (callback) => {
 
         // Store the access key information
         let token = res.data.access_token;
+        let access_key = {};
         access_key.token = token;
         access_key.expiration = res.data.expires_in;
         access_key.issued = getCurrentTimestamp();
@@ -113,22 +131,13 @@ const pfAuthenticate = (callback) => {
 // automatically handles the authentication and token
 const pfAPICall = (url, callback) => {
 
-    // If we haven't loaded the access key from localStorage yet, 
-    // (usually on page load, or first visit)
-    // then try to get it from local storage
-    if(access_key.token === "") {
-        if(localStorage.petProject) {
-            let ls = JSON.parse(localStorage.petProject);
-            access_key = ls.access_key;
-        }
-    }
-
     if(pfIsTokenExpired()) {
         // If the token is expired (it usually expires after 3600 seconds)
         // then reauthenticate and make the API call
         pfAuthenticate(() => {
             // If authentication was successfull, then make the original API call
-            
+            let access_key = getAccessKey();
+
             const apiCall = axios.create({
                     baseURL: 'https://api.petfinder.com',
                     headers: {'Authorization': 'Bearer '+ access_key.token}
@@ -146,7 +155,8 @@ const pfAPICall = (url, callback) => {
             });
         });
     } else { // Else if the token is not expired, go ahead and make the API call
-        
+        let access_key = getAccessKey();
+
         const apiCall = axios.create({
             baseURL: 'https://api.petfinder.com',
             headers: {'Authorization': 'Bearer '+ access_key.token}
