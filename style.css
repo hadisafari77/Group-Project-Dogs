@@ -1,9 +1,33 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
+main {
+  flex: 1 0 auto;
+}
+
+
+#main {
+  
+margin-top: 50px;
+
+}
+
+.dog-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 450px) {
+  a.brand-logo {
+    font-size: 1.5em !important;
+
   }
+}
