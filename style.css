@@ -2,8 +2,31 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
+
+@media screen and (max-width: 450px) {
+    a.brand-logo {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    a.brand-logo {
+        font-size: 1em !important;
+    }
+}
+
+/* Make the animal choices to display inline */
+.choices {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/* Style to remove some padding on animal choices */
+.animalName {
+    padding-left:28px !important;
+}
