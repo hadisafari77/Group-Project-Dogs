@@ -19,6 +19,7 @@
  */
 
 
+// This is an internal function and does not need to be called outside this scrit
 // How the access token is stored in localStorage
 // access_key = {
 //    token: "abcdef12345",    
