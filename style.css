@@ -2,9 +2,43 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
 main {
+<<<<<<< HEAD
+    flex: 1 0 auto;
+}
+
+@media screen and (max-width: 450px) {
+    a.brand-logo {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    a.brand-logo {
+        font-size: 1em !important;
+    }
+}
+
+/* Make the animal choices to display inline */
+.choices {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/* Style to remove some padding on animal choices */
+.animalName {
+    padding-left:28px !important;
+}
+
+#dog_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+=======
   flex: 1 0 auto;
 }
 
+>>>>>>> 59f1fcf31d3f19bff5499f599ff75d5fff8eb64e
