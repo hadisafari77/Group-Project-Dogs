@@ -30,3 +30,9 @@ main {
 .animalName {
     padding-left:28px !important;
 }
+
+#dog_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -55,7 +55,7 @@
       </div>
       <!-- Container for the search form -->
       <div class="container search-container">
-        <form>
+        <form action="pets.html" method="get">
           <p>
             <label for="searchbox">
               <input
@@ -68,45 +68,45 @@
           </p>
           <p class="choices">
             <label for="dogs">
-              <input type="checkbox" class="filled-in" id="dogs" />
+              <input type="checkbox" class="filled-in" id="dogs" name="pet_types" value="dogs"/>
               <span class="animalName">Dogs</span>
             </label>
           </p>
           <p class="choices">
             <label for="cats">
-              <input type="checkbox" class="filled-in" id="cats" />
+              <input type="checkbox" class="filled-in" id="cats" name="pet_types" value="cats"/>
               <span class="animalName">Cats</span>
             </label>
           </p>
           <p class="choices">
             <label for="rabbits">
-              <input type="checkbox" class="filled-in" id="rabbits" />
+              <input type="checkbox" class="filled-in" id="rabbits" name="pet_types" value="rabbits"/>
               <span class="animalName">Rabbits</span>
             </label>
           </p>
           <p class="choices">
             <label for="birds">
-              <input type="checkbox" class="filled-in" id="birds" />
+              <input type="checkbox" class="filled-in" id="birds" name="pet_types" value="birds"/>
               <span class="animalName">Birds</span>
             </label>
           </p>
           <p class="choices">
             <label for="farm">
-              <input type="checkbox" class="filled-in" id="farm" />
+              <input type="checkbox" class="filled-in" id="farm" name="pet_types" value="farm"/>
               <span class="animalName">Farm Animals</span>
             </label>
           </p>
           <p class="choices">
             <label for="other">
-              <input type="checkbox" class="filled-in" id="other" />
+              <input type="checkbox" class="filled-in" id="other" name="pet_types" value="other"/>
               <span class="animalName">Other Animals</span>
             </label>
           </p>
+          <!-- Search button for form -->
+          <button class="btn waves-effect waves-light" type="submit">
+            Search
+          </button>
         </form>
-        <!-- Search button for form -->
-        <button class="btn waves-effect waves-light" type="submit">
-          Search
-        </button>
       </div>
     </main>
     <!-- Fixed Footer -->
@@ -152,33 +152,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-              var elems = document.querySelectorAll(".sidenav");
-              var instances = M.Sidenav.init(elems, {
-                  edge: "left",
-                  draggable: false,
-              });
+      const loadDogPic = () => {
+        axios
+          .get("https://dog.ceo/api/breeds/image/random")
+          .then((res) => {
+            document.getElementById("dog_img").src = res.data.message;
+          })
+          .catch((res) => {
+            console.log("Failed to fetch random dog photo");
+            console.log(res);
           });
+      };
 
-          const loadDogPic = () => {
-              axios.get("https://dog.ceo/api/breeds/image/random").then(res => {
-                  document.getElementById("dog_img").src = res.data.message;
-              }).catch(res => {
-                  console.log("Failed to fetch random dog photo");
-                  console.log(res);
-              });
-          }
+      document.addEventListener("DOMContentLoaded", function () {
+        loadDogPic();
 
-          document.addEventListener("DOMContentLoaded", function () {
-
-              loadDogPic();
-
-              var elems = document.querySelectorAll(".sidenav");
-              var instances = M.Sidenav.init(elems, {
-                  edge: "left",
-                  draggable: false,
-              });
-          });
+        var elems = document.querySelectorAll(".sidenav");
+        var instances = M.Sidenav.init(elems, {
+          edge: "left",
+          draggable: false,
+        });
+      });
     </script>
   </body>
 </html>
