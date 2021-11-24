@@ -41,12 +41,13 @@
     </ul>
   </div>
 
+  <!-- Random Pet card layouts -->
   <main>
-
+    <!-- Pets header -->
     <h1 class="dog-container">PETS</h1>
 
-    </span>
-    <div class="row"> </span>
+    <!-- First card -->
+    <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
           <div class="card-image">
@@ -64,8 +65,8 @@
       </div>
     </div>
 
-    </span>
-    <div class="row"> </span>
+    <!-- Second card -->
+    <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
           <div class="card-image">
@@ -83,8 +84,8 @@
       </div>
     </div>
 
-    </span>
-    <div class="row"> </span>
+    <!-- Third card -->
+    <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
           <div class="card-image">
@@ -102,7 +103,7 @@
       </div>
     </div>
 
-
+    <!-- Fourth card -->
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
@@ -121,17 +122,17 @@
       </div>
     </div>
 
-
-
   </main>
 
+
+  <!-- Footer -->
   <footer class="page-footer">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
+        <!-- <div class="col l6 s12">
           <h5 class="white-text">Footer Content</h5>
           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
+        </div> -->
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
@@ -139,15 +140,8 @@
             <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
             <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
             <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
-
           </ul>
         </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>
@@ -185,15 +179,60 @@
       localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
 
 
-      for (let i = 0; i < myStoredArray.length; i++) {
-
-        box.innerHTML += `
-  <li> ${myStoredArray[i]} </li>
-`
-      }
     })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems, {
+        edge: "left",
+        draggable: false,
+      });
+    });
 
+    const loadDogPic = () => {
+      axios.get("https://dog.ceo/api/breeds/image/random").then(res => {
+        document.getElementById("dog_img").src = res.data.message;
+      }).catch(res => {
+        console.log("Failed to fetch random dog photo");
+        console.log(res);
+      });
+    }
 
+    document.addEventListener("DOMContentLoaded", function () {
+
+      loadDogPic();
+
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems, {
+        edge: "left",
+        draggable: false,
+      });
+    });
+  </script>
+
+  <script>
+
+    document.getElementById("submitBtn").addEventListener("click", function (event) {
+
+      var scoreInput = document.getElementById("scoreInput").value
+      var previousScores = JSON.parse(localStorage.getItem("scores"))
+
+      if (previousScores === null) {
+        previousScores = []
+
+      }
+
+      var userScore = {
+        initials: scoreInput,
+        score: time
+
+      }
+      previousScores.push(userScore)
+      localStorage.setItem("scores", JSON.stringify(previousScores))
+      window.location.replace("highscores.html")
+    })
 
   </script>
 
