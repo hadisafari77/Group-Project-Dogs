@@ -11,8 +11,8 @@ main {
 
 
 #main {
-  
-margin-top: 50px;
+
+  margin-top: 50px;
 
 }
 
@@ -32,7 +32,7 @@ margin-top: 50px;
 
   }
 
-    /* display: flex;
+  /* display: flex;
     min-height: 100vh;
     flex-direction: column; */
 }
@@ -41,3 +41,19 @@ main {
   flex: 1 0 auto;
 }
 
+/* i tried doing some styling for the content to show correctly on the card but i was unsuccessful :(( */
+.myDescription {
+
+  display: inline !important;
+}
+
+.myImage {
+
+  display: inline !important;
+}
+
+.card-image {
+
+  display: inline !important;
+
+}

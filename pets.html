@@ -42,11 +42,11 @@
   </div>
 
   <!-- Random Pet card layouts -->
-  <main>
+  <main id="petList">
     <!-- Pets header -->
     <h1 class="dog-container">PETS</h1>
 
-    <!-- First card -->
+    <!-- First card
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
@@ -63,9 +63,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Second card -->
+    <!-- Second card
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
@@ -82,9 +82,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Third card -->
+    <!-- Third card
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
@@ -101,9 +101,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  -->
 
-    <!-- Fourth card -->
+    <!-- Fourth card
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
@@ -120,10 +120,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </main>
-
 
   <!-- Footer -->
   <footer class="page-footer">
@@ -146,19 +145,61 @@
     </div>
   </footer>
 
+  <!-- javaScript -->
+
+  <!-- JS Link -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="assets/api.js"></script>
+
+
+  <!-- JS Sidebar -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {         
+      const params = new URLSearchParams(window.location.search);
+        let location = params.get('location');
+        let petTypes = params.get('pet_types');
+
+      pfAPICall('/v2/animals?type=dog', (data) => {
+      console.log(data); 
+      for (let i = 0; i < data.animals.length; i++) { 
+        let pet = data.animals[i]
+        let petphotos = " "
+        if(pet.photos.length > 0 && pet.photos[0].small) { 
+
+            petphotos = pet.photos[0].small
+
+        }
+        let elEm = document.createElement("div")
+        elEm.className = "row"
+        elEm.innerHTML = ` <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img class= "myImage" src="${petphotos}" style = "width:100px" >
+            <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="saveBtn material-icons">add</i></a>
+          </div>
+          <div class="">
+            <p class ="myDescription" >"${pet.description}"</p>
+            
+
+          </div>
+        </div>
+      </div>`
+        document.getElementById("petList").append(elEm)
+
+      }
+      
+  });
       var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {
+      var instances = M.Sidenav.init(elems, { 
         edge: "left",
         draggable: false,
       });
     });
-
   </script>
 
-
+  <!-- Local Storage change towards favorites.html -->
   <script>
 
     document.addEventListener("click", event => {
@@ -170,70 +211,16 @@
 
       let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
 
-      console.log(myStoredArray)
+      // console.log(myStoredArray)
 
-      myStoredArray.push(stuff)
+      // myStoredArray.push(stuff)
 
       console.log(myStoredArray, 'myStoredArray after we pushed stuff')
 
       localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
-
+      window.location.replace("favorites.html")
 
     })
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {
-        edge: "left",
-        draggable: false,
-      });
-    });
-
-    const loadDogPic = () => {
-      axios.get("https://dog.ceo/api/breeds/image/random").then(res => {
-        document.getElementById("dog_img").src = res.data.message;
-      }).catch(res => {
-        console.log("Failed to fetch random dog photo");
-        console.log(res);
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-      loadDogPic();
-
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {
-        edge: "left",
-        draggable: false,
-      });
-    });
-  </script>
-
-  <script>
-
-    document.getElementById("submitBtn").addEventListener("click", function (event) {
-
-      var scoreInput = document.getElementById("scoreInput").value
-      var previousScores = JSON.parse(localStorage.getItem("scores"))
-
-      if (previousScores === null) {
-        previousScores = []
-
-      }
-
-      var userScore = {
-        initials: scoreInput,
-        score: time
-
-      }
-      previousScores.push(userScore)
-      localStorage.setItem("scores", JSON.stringify(previousScores))
-      window.location.replace("highscores.html")
-    })
-
   </script>
 
 </body>
