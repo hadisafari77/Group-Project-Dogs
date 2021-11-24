@@ -24,10 +24,10 @@ The user is able to save the adoptable pets to the local storage for later.
 
 
 # Tech and Framework Used
-HTML
-CSS
-MaterializedCSS
-Javascript
+> HTML
+> CSS
+> MaterializedCSS
+> Javascript
 
 
 # APIs Used
