@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pet Rescue Finder</title>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!--Navbar-->
     <div id="navbar">
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Pet Rescue Finder</a>
+                <a href="index.html" class="brand-logo">Pet Rescue Finder</a>
                 <!-- Hamburger for mobile -->
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -35,23 +43,86 @@
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="favorites.html">Favorites</a></li>
-        </ul>
+          </ul>
+        </div>
+      </nav>
+      <!-- Links for Hamburger -->
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
     </div>
 
     <main>
-    <!-- <div class="container dog-container"></div>
-    <div class="container search-container">
-        <form>
-            
+      <!-- Container for the random image -->
+      <div class="container image-container">
+        <img src="" id="dog_img" alt="Dog Photo" />
+      </div>
+      <!-- Container for the search form -->
+      <div class="container search-container">
+        <form action="pets.html" method="get">
+          <p>
+            <label for="searchbox">
+              <input
+                type="text"
+                name="searchbox"
+                id="searchbox"
+                placeholder="Enter your desired city"
+              />
+            </label>
+          </p>
+          <p class="choices">
+            <label for="dogs">
+              <input type="checkbox" class="filled-in" id="dogs" name="pet_types" value="dogs"/>
+              <span class="animalName">Dogs</span>
+            </label>
+          </p>
+          <p class="choices">
+            <label for="cats">
+              <input type="checkbox" class="filled-in" id="cats" name="pet_types" value="cats"/>
+              <span class="animalName">Cats</span>
+            </label>
+          </p>
+          <p class="choices">
+            <label for="rabbits">
+              <input type="checkbox" class="filled-in" id="rabbits" name="pet_types" value="rabbits"/>
+              <span class="animalName">Rabbits</span>
+            </label>
+          </p>
+          <p class="choices">
+            <label for="birds">
+              <input type="checkbox" class="filled-in" id="birds" name="pet_types" value="birds"/>
+              <span class="animalName">Birds</span>
+            </label>
+          </p>
+          <p class="choices">
+            <label for="farm">
+              <input type="checkbox" class="filled-in" id="farm" name="pet_types" value="farm"/>
+              <span class="animalName">Farm Animals</span>
+            </label>
+          </p>
+          <p class="choices">
+            <label for="other">
+              <input type="checkbox" class="filled-in" id="other" name="pet_types" value="other"/>
+              <span class="animalName">Other Animals</span>
+            </label>
+          </p>
+          <!-- Search button for form -->
+          <button class="btn waves-effect waves-light" type="submit">
+            Search
+          </button>
         </form>
-    </div> -->
+      </div>
     </main>
+    <!-- Fixed Footer -->
     <footer class="page-footer">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <button id="btnFact" a class="waves-effect pulse waves-light btn-small">Random cat fact!</button>
+              <br><br>
+              <p id= "fact" class="grey-text text-lighten-4">...</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
@@ -63,18 +134,30 @@
             </div>
           </div>
         </div>
-        <div class="footer-copyright">
-          <div class="container">
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
           © 2014 Copyright Text
           <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
         </div>
       </footer>
     
 
- 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+      const loadDogPic = () => {
+        axios
+          .get("https://dog.ceo/api/breeds/image/random")
+          .then((res) => {
+            document.getElementById("dog_img").src = res.data.message;
+          })
+          .catch((res) => {
+            console.log("Failed to fetch random dog photo");
+            console.log(res); 
+          });
+      };
+        loadDogPic();
         document.addEventListener("DOMContentLoaded", function () {
             var elems = document.querySelectorAll(".sidenav");
             var instances = M.Sidenav.init(elems, {
@@ -83,6 +166,26 @@
             });
         });
     </script>
-</body>
+    
+    <!-- Random cat fact script -->
+    <script>
 
+      const api = "https://catfact.ninja/fact";
+
+      const fact = document.getElementById("fact");
+      const btnFact = document.getElementById("btnFact");
+
+      btnFact.addEventListener("click", getFact);
+
+      function getFact() {
+        fetch(api)
+          .then((res) => res.json())
+          .then((data) => {
+            fact.innerHTML = `"${data.fact}"`;
+          });
+        }
+
+  
+    </script>
+  </body>
 </html>
