@@ -50,8 +50,9 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <button id="btnFact" a class="waves-effect pulse waves-light btn-small">Random cat fact!</button>
+              <br><br>
+              <p id= "fact" class="grey-text text-lighten-4">...</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
@@ -71,8 +72,6 @@
         </div>
       </footer>
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -82,6 +81,26 @@
                 draggable: false,
             });
         });
+    </script>
+    
+    <!-- Random cat fact script -->
+    <script>
+
+      const api = "https://catfact.ninja/fact";
+
+      const fact = document.getElementById("fact");
+      const btnFact = document.getElementById("btnFact");
+
+      btnFact.addEventListener("click", getFact);
+
+      function getFact() {
+        fetch(api)
+          .then((res) => res.json())
+          .then((data) => {
+            fact.innerHTML = `"${data.fact}"`;
+          });
+      }
+
     </script>
 </body>
 
