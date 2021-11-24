@@ -5,6 +5,7 @@ body {
 }
 
 main {
+<<<<<<< HEAD
     flex: 1 0 auto;
 }
 
@@ -36,3 +37,8 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+=======
+  flex: 1 0 auto;
+}
+
+>>>>>>> 59f1fcf31d3f19bff5499f599ff75d5fff8eb64e
