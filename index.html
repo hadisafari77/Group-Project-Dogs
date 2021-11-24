@@ -1,135 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pet Rescue Finder</title>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!--Navbar-->
     <div id="navbar">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Pet Rescue Finder</a>
-                <!-- Hamburger for mobile -->
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="favorites.html">Favorites</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- Links for Hamburger -->
-        <ul class="sidenav" id="mobile-demo">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Pet Rescue Finder</a>
+          <!-- Hamburger for mobile -->
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="favorites.html">Favorites</a></li>
-        </ul>
+          </ul>
+        </div>
+      </nav>
+      <!-- Links for Hamburger -->
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
     </div>
 
-  <main>
-    <!-- Container for the random image -->
-    <div class="container image-container">
-
-    </div>
-    <!-- Container for the search form -->
-    <div class="container search-container">
+    <main>
+      <!-- Container for the random image -->
+      <div class="container image-container">
+        <img src="" id="dog_img" alt="Dog Photo" />
+      </div>
+      <!-- Container for the search form -->
+      <div class="container search-container">
         <form>
           <p>
             <label for="searchbox">
-              <input type="text" name="searchbox" id="searchbox" placeholder="Enter your desired city">
+              <input
+                type="text"
+                name="searchbox"
+                id="searchbox"
+                placeholder="Enter your desired city"
+              />
             </label>
           </p>
           <p class="choices">
             <label for="dogs">
-              <input type="checkbox" class="filled-in" id="dogs"/>
+              <input type="checkbox" class="filled-in" id="dogs" />
               <span class="animalName">Dogs</span>
             </label>
           </p>
           <p class="choices">
             <label for="cats">
-              <input type="checkbox" class="filled-in" id="cats"/>
+              <input type="checkbox" class="filled-in" id="cats" />
               <span class="animalName">Cats</span>
             </label>
           </p>
           <p class="choices">
             <label for="rabbits">
-              <input type="checkbox" class="filled-in" id="rabbits"/>
+              <input type="checkbox" class="filled-in" id="rabbits" />
               <span class="animalName">Rabbits</span>
             </label>
           </p>
           <p class="choices">
             <label for="birds">
-              <input type="checkbox" class="filled-in" id="birds"/>
+              <input type="checkbox" class="filled-in" id="birds" />
               <span class="animalName">Birds</span>
             </label>
           </p>
           <p class="choices">
             <label for="farm">
-              <input type="checkbox" class="filled-in" id="farm"/>
+              <input type="checkbox" class="filled-in" id="farm" />
               <span class="animalName">Farm Animals</span>
             </label>
           </p>
           <p class="choices">
             <label for="other">
-              <input type="checkbox" class="filled-in" id="other"/>
+              <input type="checkbox" class="filled-in" id="other" />
               <span class="animalName">Other Animals</span>
             </label>
           </p>
         </form>
         <!-- Search button for form -->
-        <button class="btn waves-effect waves-light" type="submit">Search</button>
-    </div>
-  </main>
+        <button class="btn waves-effect waves-light" type="submit">
+          Search
+        </button>
+      </div>
+    </main>
     <!-- Fixed Footer -->
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
-            <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
-            <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
+    <footer class="page-footer">
       <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">
+              You can use rows and columns here to organize your footer content.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="contact.html"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="about.html"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="favorites.html"
+                  >Favorites</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-
-
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var elems = document.querySelectorAll(".sidenav");
-            var instances = M.Sidenav.init(elems, {
-                edge: "left",
-                draggable: false,
-            });
-        });
-    </script>
-</body>
+          document.addEventListener("DOMContentLoaded", function () {
+              var elems = document.querySelectorAll(".sidenav");
+              var instances = M.Sidenav.init(elems, {
+                  edge: "left",
+                  draggable: false,
+              });
+          });
 
+          const loadDogPic = () => {
+              axios.get("https://dog.ceo/api/breeds/image/random").then(res => {
+                  document.getElementById("dog_img").src = res.data.message;
+              }).catch(res => {
+                  console.log("Failed to fetch random dog photo");
+                  console.log(res);
+              });
+          }
+
+          document.addEventListener("DOMContentLoaded", function () {
+
+              loadDogPic();
+
+              var elems = document.querySelectorAll(".sidenav");
+              var instances = M.Sidenav.init(elems, {
+                  edge: "left",
+                  draggable: false,
+              });
+          });
+    </script>
+  </body>
 </html>
