@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Rescue Finder</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!--Navbar-->
+  <div id="navbar">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="index.html" class="a brand-logo">Pet Rescue Finder</a>
+
+        <!-- Hamburger for mobile -->
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="favorites.html">Favorites</a></li>
+          <li><a href="pets.html">Pets</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Links for Hamburger -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="favorites.html">Favorites</a></li>
+      <li><a href="pets.html">Pets</a></li>
+    </ul>
+  </div>
+
+  <!-- Random Pet card layouts -->
+  <main id="petList">
+    <!-- Pets header -->
+    <h1 class="dog-container">PETS</h1>
+
+    <!-- First card
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img src="images/sample-1.jpg">
+            <span class="card-title">Card Title</span>
+            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require
+              little markup to use effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Second card
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img src="images/sample-1.jpg">
+            <span class="card-title">Card Title</span>
+            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require
+              little markup to use effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Third card
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img src="images/sample-1.jpg">
+            <span class="card-title">Card Title</span>
+            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require
+              little markup to use effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+
+    <!-- Fourth card
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img src="images/sample-1.jpg">
+            <span class="card-title">Card Title</span>
+            <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="saveBtn material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require
+              little markup to use effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div> -->
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
+            <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
+            <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- javaScript -->
+
+  <!-- JS Link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="assets/api.js"></script>
+
+
+  <!-- JS Sidebar -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {         
+      const params = new URLSearchParams(window.location.search);
+        let location = params.get('location');
+        let petTypes = params.get('pet_types');
+
+      pfAPICall('/v2/animals?type=dog', (data) => {
+      console.log(data); 
+      for (let i = 0; i < data.animals.length; i++) { 
+        let pet = data.animals[i]
+        let petphotos = " "
+        if(pet.photos.length > 0 && pet.photos[0].small) { 
+
+            petphotos = pet.photos[0].small
+
+        }
+        let elEm = document.createElement("div")
+        elEm.className = "row"
+        elEm.innerHTML = ` <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-image">
+            <img class= "myImage" src="${petphotos}" style = "width:100px" >
+            <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="saveBtn material-icons">add</i></a>
+          </div>
+          <div class="">
+            <p class ="myDescription" >"${pet.description}"</p>
+            
+
+          </div>
+        </div>
+      </div>`
+        document.getElementById("petList").append(elEm)
+
+      }
+      
+  });
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems, { 
+        edge: "left",
+        draggable: false,
+      });
+    });
+  </script>
+
+  <!-- Local Storage change towards favorites.html -->
+  <script>
+
+    document.addEventListener("click", event => {
+
+      if (event.target.classList.contains("saveBtn")) {
+
+        console.log("png")
+      }
+
+      let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
+
+      // console.log(myStoredArray)
+
+      // myStoredArray.push(stuff)
+
+      console.log(myStoredArray, 'myStoredArray after we pushed stuff')
+
+      localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
+      window.location.replace("favorites.html")
+
+    })
+  </script>
+
+</body>
+
+</html>
