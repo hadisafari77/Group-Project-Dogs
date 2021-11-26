@@ -46,82 +46,6 @@
     <!-- Pets header -->
     <h1 class="dog-container">PETS</h1>
 
-    <!-- First card
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Second card
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Third card
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-            <a href="favorites.html" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div>  -->
-
-    <!-- Fourth card
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-            <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="saveBtn material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
   </main>
 
   <!-- Footer -->
@@ -164,26 +88,30 @@
       console.log(data); 
       for (let i = 0; i < data.animals.length; i++) { 
         let pet = data.animals[i]
-        let petphotos = " "
+        let petphotos = "https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png"
+        let petDescription = "No description available"
         if(pet.photos.length > 0 && pet.photos[0].small) { 
-
             petphotos = pet.photos[0].small
-
         }
+
+        if(pet.description !== null) {
+          petDescription = pet.description
+        }
+
         let elEm = document.createElement("div")
         elEm.className = "row"
         elEm.innerHTML = ` <div class="col s12 m12 l12">
         <div class="card">
-          <div class="card-image">
-            <img class= "myImage" src="${petphotos}" style = "width:100px" >
-            <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="saveBtn material-icons">add</i></a>
-          </div>
-          <div class="">
-            <p class ="myDescription" >"${pet.description}"</p>
-            
-
-          </div>
+          <div class="row">
+            <div class="col s2 m2 l2">
+              <img class= "myImage" src="${petphotos}" style = "width:200px" >
+            </div>
+            <div class="col s10 m10, l10">
+              <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                  class="saveBtn material-icons">add</i></a>
+                  <h4>${pet.name}</h4>
+              <p class ="myDescription" >"${petDescription}"</p>
+            </div>
         </div>
       </div>`
         document.getElementById("petList").append(elEm)
@@ -207,6 +135,8 @@
       if (event.target.classList.contains("saveBtn")) {
 
         console.log("png")
+
+        window.location.replace("favorites.html")
       }
 
       let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
@@ -218,7 +148,6 @@
       console.log(myStoredArray, 'myStoredArray after we pushed stuff')
 
       localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
-      window.location.replace("favorites.html")
 
     })
   </script>
