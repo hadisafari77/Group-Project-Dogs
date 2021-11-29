@@ -1,38 +1,70 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+
+#main {
+
+  margin-top: 50px;
+
+}
+
+.dog-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 450px) {
-    a.brand-logo {
-        font-size: 1.5em !important;
-    }
+  a.brand-logo {
+    font-size: 1.5em !important;
+
+  }
+
+  /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
 }
 
-@media screen and (max-width: 320px) {
-    a.brand-logo {
-        font-size: 1em !important;
-    }
+main {
+  flex: 1 0 auto;
 }
 
-/* Make the animal choices to display inline */
-.choices {
-    display: inline-block;
-    margin-right: 1rem;
+/* i tried doing some styling for the content to show correctly on the card but i was unsuccessful :(( */
+.myDescription {
+
+  display: inline !important;
 }
 
-/* Style to remove some padding on animal choices */
-.animalName {
-    padding-left:28px !important;
+.myImage {
+
+  display: inline !important;
 }
 
-#dog_img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.card-image {
+
+  display: inline !important;
+
+}
+
+.card-title {
+  color: black !important;
+  position: relative !important;
+  font-weight: bold !important;
+}
+
+.card {
+  min-height: 440px !important;
+  display: block !important;
 }
