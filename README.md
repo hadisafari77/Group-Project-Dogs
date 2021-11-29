@@ -15,6 +15,8 @@ We also have a random cat facts API in the footer of the website to generate a r
 > https://catfact.ninja/fact
 
 
+[See live site here]()
+
 # How to Use Pet Rescue Finder 
 The user will enter in their desired city and check the boxes of their desired pets such as dogs, cats, birds, and etc.
 The website will return to the user a list of the the adoptable pets in the surrounding area of the city the user chose.
@@ -34,3 +36,9 @@ The user is able to save the adoptable pets to the local storage for later.
 > https://catfact.ninja/fact
 > https://dog.ceo/dog-api/
 
+## Team
+- Ryan ([Github](https://github.com/rytc))
+- Hadi ([Github](https://github.com/hadisafari77)
+- Tim ([Github](https://github.com/wearehavingfun))
+- Johnny ([Github](https://github.com/Shavv97))
+- Haoyang ([Github](https://github.com/hvoyvng))
