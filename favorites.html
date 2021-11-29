@@ -152,7 +152,6 @@
     </footer>
 
 
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -200,6 +199,27 @@
         fact.innerHTML = `"${data.fact}"`;
       });
   }
+
+</script>
+
+<!-- Random cat fact script -->
+<script>
+
+  const api = "https://catfact.ninja/fact";
+
+  const fact = document.getElementById("fact");
+  const btnFact = document.getElementById("btnFact");
+
+  btnFact.addEventListener("click", getFact);
+
+  function getFact() {
+    fetch(api)
+      .then((res) => res.json())
+      .then((data) => {
+        fact.innerHTML = `"${data.fact}"`;
+      });
+  }
+
 
 </script>
 
