@@ -57,3 +57,14 @@ main {
   display: inline !important;
 
 }
+
+.card-title {
+  color: black !important;
+  position: relative !important;
+  font-weight: bold !important;
+}
+
+.card {
+  min-height: 440px !important;
+  display: block !important;
+}
