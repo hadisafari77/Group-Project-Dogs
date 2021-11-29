@@ -19,7 +19,7 @@
     <div id="navbar">
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Pet Rescue Finder</a>
+                <a href="index.html" class="brand-logo">Pet Rescue Finder</a>
                 <!-- Hamburger for mobile -->
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -101,34 +101,34 @@
             </div>
         </div>
     </main>
-    <!-- Fixed Footer -->
-    <footer class="page-footer">
+<!-- Fixed Footer -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <button id="btnFact" a class="waves-effect btn-small">Random cat fact!</button>
+                <br><br>
+                <p id="fact" class="grey-text text-lighten-4">...</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
+                    <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
+                    <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
+                    <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
+                    <li><a class="grey-text text-lighten-3" href="why.html">Why</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <button id="btnFact" a class="waves-effect btn-small">Random cat fact!</button>
-                    <br><br>
-                    <p id="fact" class="grey-text text-lighten-4">...</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
-                        <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
-                        <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
-                        <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
-                        <li><a class="grey-text text-lighten-3" href="why.html">Why</a></li>
-                    </ul>
-                </div>
-            </div>
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-    </footer>
+</footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -159,5 +159,28 @@
 
 
     </script>
+
+<!-- Random cat fact script -->
+<script>
+
+    const api = "https://catfact.ninja/fact";
+
+    const fact = document.getElementById("fact");
+    const btnFact = document.getElementById("btnFact");
+
+    btnFact.addEventListener("click", getFact);
+
+    function getFact() {
+        fetch(api)
+            .then((res) => res.json())
+            .then((data) => {
+                fact.innerHTML = `"${data.fact}"`;
+            });
+    }
+
+
+</script>
+
 </body>
+
 </html>
