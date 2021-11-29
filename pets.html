@@ -77,8 +77,9 @@
   <script src="assets/api.js"></script>
 
 
-  <!-- JS Sidebar -->
+  <!-- JS API rendering of cards -->
   <script>
+    let pets = []
     document.addEventListener("DOMContentLoaded", function () {
       const params = new URLSearchParams(window.location.search);
       let location = params.get('location');
@@ -86,6 +87,7 @@
 
       pfAPICall('/v2/animals?type=dog', (data) => {
         console.log(data);
+        pets = data.animals
         for (let i = 0; i < data.animals.length; i++) {
           let pet = data.animals[i]
           let petphotos = "https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png"
@@ -99,8 +101,7 @@
           if (pet.description !== null) {
             petDescription = pet.description
           }
-
-
+          
           let elEm = document.createElement("div")
           elEm.className = "row"
           elEm.innerHTML = ` <div class="col s12 m12 l12">
@@ -111,7 +112,7 @@
             </div>
             <div class="col s12 m12, l9">
               <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
-                  class="saveBtn material-icons">add</i></a>
+                  class="saveBtn material-icons" data-index= "${i}">add</i></a>
                   <h4>${pet.name}</h4>
                   <br> <br>
               <p class ="myDescription" > Description: ${petDescription}</p>
@@ -140,16 +141,21 @@
   <!-- Local Storage change towards favorites.html -->
   <script>
 
+    let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
+
     document.addEventListener("click", event => {
 
       if (event.target.classList.contains("saveBtn")) {
-
+        let savedAnimal = pets[event.target.dataset.index]
+        console.log(savedAnimal)
         console.log("png")
+
+        myStoredArray.push(savedAnimal)
+
+        localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
 
         window.location.replace("favorites.html")
       }
-
-      let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
 
       // console.log(myStoredArray)
 
