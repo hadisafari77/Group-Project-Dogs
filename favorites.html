@@ -46,34 +46,34 @@
 <div id="emptyBox"> </div>
 
   </main>
+<!-- Fixed Footer -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <button id="btnFact" a class="waves-effect pulse waves-light btn-small">Random cat fact!</button>
+        <br><br>
+        <p id="fact" class="grey-text text-lighten-4">...</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
+          <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
+          <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
+          <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
 
-  <footer class="page-footer">
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer-copyright">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
-            <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
-            <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
-            <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
-
-          </ul>
-        </div>
-      </div>
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
-  </footer>
-
+</footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -97,7 +97,7 @@
         pet = myStoredArray[i]
         // emptyBox.innerHTML +=
         let petphotos = "https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png"
-        let petDescription = "No description available"
+        let petDescription = "No description available" 
         let petAge = pet.age
         let petGender = pet.gender
         if (pet.photos.length > 0 && pet.photos[0].small) {
@@ -139,7 +139,7 @@
 </script>
 
 <!-- Random cat fact script -->
-<!-- <script>
+<script>
 
   const api = "https://catfact.ninja/fact";
 
@@ -156,7 +156,7 @@
       });
   }
 
-</script> -->
+</script>
 
 </body>
 
