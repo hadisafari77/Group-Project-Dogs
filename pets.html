@@ -161,7 +161,8 @@
 
         localStorage.setItem('myStoredArray', JSON.stringify(myStoredArray))
 
-        window.location.replace("favorites.html")
+        //window.location.replace("favorites.html")
+        event.target.parentNode.style.display = "none";
       }
 
       // console.log(myStoredArray)
