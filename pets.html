@@ -91,7 +91,7 @@
       const params = new URLSearchParams(window.location.search);
       let location = params.get('location');
       let petTypes = params.get('pet_types');
-
+      console.log(petTypes)
       pfAPICall(`/v2/animals?type=${petTypes}&location=${location}`, (data) => {
         console.log(data);
         pets = data.animals
