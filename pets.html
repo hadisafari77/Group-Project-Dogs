@@ -94,7 +94,7 @@
         let location = params.get('location');
         let petTypes = params.get('pet_types');
 
-      pfAPICall('/v2/animals?type=dog', (data) => {
+      pfAPICall(`/v2/animals?type=${petTypes}&location=${location}`, (data) => {
       console.log(data); 
       for (let i = 0; i < data.animals.length; i++) { 
         let pet = data.animals[i]
