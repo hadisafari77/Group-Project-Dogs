@@ -41,9 +41,9 @@
     </ul>
   </div>
 
-  <main id="main">
-
-<div id="emptyBox"> </div>
+  <main id="main" class="container">
+    <h2 class="dog-container">Favorite Pets</h2>
+    <div id="emptyBox">No pets have been saved.</div>
 
   </main>
     <!-- Fixed Footer -->
@@ -91,6 +91,10 @@
 
     const displayFavoritePets = () => {
       let myStoredArray = JSON.parse(localStorage.getItem("myStoredArray")) || []
+
+      if(myStoredArray.length > 0) {
+        document.getElementById("emptyBox").innerHTML = "";
+      }
       console.log(myStoredArray)
       let emptyBox = document.getElementById("emptyBox")
     
@@ -127,7 +131,8 @@
                 <p class ="pet-age" > Age: ${petAge} </p>
                 <br> 
                 <p class ="pet-age" > Gender: ${petGender} </p>
-              
+                <br />
+                <a href="${pet.url}">Click here to learn more</a>
 
               </div>
           </div>
