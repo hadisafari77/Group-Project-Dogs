@@ -86,6 +86,18 @@
 
   <!-- JS API rendering of cards -->
   <script>
+
+    let myStoredArray = JSON.parse(localStorage.getItem("myStoredArray")) || []
+
+    const petAlreadySaved = (id) => {
+      for(let i = 0; i < myStoredArray.length; i++) {
+        if(myStoredArray[i].id == id) {
+          return true;
+        }
+        return false;
+      }
+    }
+
     let pets = []
     document.addEventListener("DOMContentLoaded", function () {
       const params = new URLSearchParams(window.location.search);
@@ -109,6 +121,11 @@
             petDescription = pet.description
           }
 
+          let showBtn = ""
+          if(petAlreadySaved(pet.id)) {
+            showBtn = "display:none;"
+          }
+
           let elEm = document.createElement("div")
           elEm.className = "row"
           elEm.innerHTML = ` <div class="col s12 m12 l12">
@@ -118,7 +135,7 @@
               <img class= "myImage" src="${petphotos}" style = "width:200px" >
             </div>
             <div class="col s12 m12 l9">
-              <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+              <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red" style="${showBtn}"><i
                   class="saveBtn material-icons" data-index= "${i}">add</i></a>
                   <h4>${pet.name}</h4>
                   <br> <br>
@@ -149,8 +166,7 @@
   <!-- Local Storage change towards favorites.html -->
   <script>
 
-    let myStoredArray = JSON.parse(localStorage.getItem("myStoredArray")) || []
-
+    
     document.addEventListener("click", event => {
 
       if (event.target.classList.contains("saveBtn")) {
