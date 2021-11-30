@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <title>Pet Rescue Finder</title>
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
@@ -27,6 +27,8 @@
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="favorites.html">Favorites</a></li>
+          <li><a href="pets.html">Pets</a></li>
+          <li><a href="why.html">Why</a></li>
         </ul>
       </div>
     </nav>
@@ -35,6 +37,8 @@
       <li><a href="contact.html">Contact Us</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="favorites.html">Favorites</a></li>
+      <li><a href="pets.html">Pets</a></li>
+      <li><a href="why.html">Why</a></li>
     </ul>
   </div>
 
@@ -53,9 +57,9 @@
             <div class="col s10">
               <span class="black-text">
                 Contact Us: <br><br>
-                510 E Peltason Dr, Irvine, CA 92697 <br>
-                (555)555-5555 <br>
-                mailto:fakemail@fakemail.com <br>
+                510 E Peltason Dr, Irvine, CA 92697 <br><br>
+                (555)555-5555 <br><br>
+                mailto:fakemail@fakemail.com
               </span>
             </div>
           </div>
@@ -63,12 +67,13 @@
       </div>
     </div>
   </main>
-<!-- Fixed Footer -->
+
+  <!-- Fixed Footer -->
 <footer class="page-footer">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <button id="btnFact" a class="waves-effect pulse waves-light btn-small">Random cat fact!</button>
+        <button id="btnFact" a class="waves-effect btn-small">Random cat fact!</button>
         <br><br>
         <p id="fact" class="grey-text text-lighten-4">...</p>
       </div>
@@ -79,6 +84,19 @@
           <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
           <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
           <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
+          <li><a class="grey-text text-lighten-3" href="why.html">Why</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+</footer>
+
 
         </ul>
       </div>
@@ -102,25 +120,27 @@
     });
   </script>
 
-      <!-- Random cat fact script -->
-      <script>
+<!-- Random cat fact script -->
+<script>
 
-        const api = "https://catfact.ninja/fact";
+  const api = "https://catfact.ninja/fact";
 
-        const fact = document.getElementById("fact");
-        const btnFact = document.getElementById("btnFact");
+  const fact = document.getElementById("fact");
+  const btnFact = document.getElementById("btnFact");
 
-        btnFact.addEventListener("click", getFact);
+  btnFact.addEventListener("click", getFact);
 
-        function getFact() {
-          fetch(api)
-            .then((res) => res.json())
-            .then((data) => {
-              fact.innerHTML = `"${data.fact}"`;
-            });
-        }
+  function getFact() {
+    fetch(api)
+      .then((res) => res.json())
+      .then((data) => {
+        fact.innerHTML = `"${data.fact}"`;
+      });
+  }
 
-      </script>
+
+</script>
+      
 </body>
 
 </html>
