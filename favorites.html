@@ -45,79 +45,25 @@
 
   <main id="main">
 
+<div id="emptyBox"> </div>
 
-    </span>
-    <div class="row"> </span>
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="">
-            <span class="card-title"></span>
-            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    </span>
-    <div class="row"> </span>
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="">
-            <span class="card-title"></span>
-            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    </span>
-    <div class="row"> </span>
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="">
-            <span class="card-title"></span>
-            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+  </main>
+<!-- Fixed Footer -->
+<footer class="page-footer">
+  <div class="container">
     <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card">
-          <div class="card-image">
-            <img src="">
-            <span class="card-title"></span>
-            <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-              require
-              little markup to use effectively.</p>
-          </div>
-        </div>
+      <div class="col l6 s12">
+        <button id="btnFact" a class="waves-effect pulse waves-light btn-small">Random cat fact!</button>
+        <br><br>
+        <p id="fact" class="grey-text text-lighten-4">...</p>
       </div>
-    </div>
-
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
+          <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
+          <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
+          <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li>
 
 
   </main>
@@ -165,21 +111,53 @@
 
 <script> 
 
-
-
-    let myStoredArray = JSON.parse(localStorage.getItem("mystoredArray")) || []
-
+    let myStoredArray = JSON.parse(localStorage.getItem("myStoredArray")) || []
+    console.log(myStoredArray)
+    let emptyBox = document.getElementById("emptyBox")
   
       for (let i = 0; i < myStoredArray.length; i++) {
+        pet = myStoredArray[i]
+        // emptyBox.innerHTML +=
+        let petphotos = "https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png"
+        let petDescription = "No description available" 
+        let petAge = pet.age
+        let petGender = pet.gender
+        if (pet.photos.length > 0 && pet.photos[0].small) {
+          petphotos = pet.photos[0].small
+        }
 
-        box.innerHTML += `
-  <li> ${myStoredArray[i]} </li>
-`
+        if (pet.description !== null) {
+          petDescription = pet.description
+        }
+
+        let elEm = document.createElement("div")
+        elEm.className = "row"
+        elEm.innerHTML = ` <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="row">
+            <div class="col s12 m12 l3">
+              <img class= "myImage" src="${petphotos}" style = "width:200px" >
+            </div>
+            <div class="col s12 m12, l9">
+              <a type=btn id="fav-btn" class="btn-floating halfway-fab waves-effect waves-light red"><i
+                  class="saveBtn material-icons" data-index= "${i}">add</i></a>
+                  <h4>${pet.name}</h4>
+                  <br> <br>
+              <p class ="myDescription" > Description: ${petDescription}</p>
+              <br>  <br>  
+               <p class ="pet-age" > Age: ${petAge} </p>
+               <br> 
+               <p class ="pet-age" > Gender: ${petGender} </p>
+            
+
+            </div>
+        </div>
+      </div>`
+        document.getElementById("emptyBox").append(elEm)
+
       }
+      
 
-
-  
-  
 </script>
 
 <!-- Random cat fact script -->
