@@ -14,6 +14,9 @@ We used a random dog image API to generate a random image of a dog on the front 
 We also have a random cat facts API in the footer of the website to generate a random cat fact whenever the user clicks the Get Fact button. This does not generate upon refresh and only generates the cat fact with the user input.
 > https://catfact.ninja/fact
 
+We used the petfinder API which allows us to access the Petfinder database of hundreds of thousands of pets ready for adoption and over ten thousand animal welfare organizations.
+> https://api.petfinder.com/v2/oauth2/token
+
 
 [See live site here](https://hadisafari77.github.io/Group-Project-Dogs/)
 
