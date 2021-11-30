@@ -27,16 +27,15 @@
     <!--Navbar-->
     <div id="navbar">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper blue-grey darken-1">
                 <a href="index.html" class="brand-logo">Pet Rescue Finder</a>
                 <!-- Hamburger for mobile -->
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="why.html">Why</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="favorites.html">Favorites</a></li>
-                    <li><a href="pets.html">Pets</a></li>
-                    <li><a href="why.html">Why</a></li>
                 </ul>
             </div>
         </nav>
@@ -45,84 +44,76 @@
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="favorites.html">Favorites</a></li>
-          <li><a href="pets.html">Pets</a></li>
           <li><a href="why.html">Why</a></li>
           </ul>
         </div>
       </nav>
       <!-- Links for Hamburger -->
       <ul class="sidenav" id="mobile-demo">
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="why.html">Why</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="favorites.html">Favorites</a></li>
-        <li><a href="pets.html">Pets</a></li>
-        <li><a href="why.html">Why</a></li>
       </ul>
     </div>
 
     <main>
       <!-- Container for the random image -->
-      <div class="container image-container">
-        <img src="" id="dog_img" alt="Dog Photo" />
+      <div class="container image-container" style="display:block; height:400px; text-align:center">
+        <img src="" id="dog_img" alt="Dog Photo" style="height:100%; margin: 0 auto;"/>
       </div>
       <!-- Container for the search form -->
       <div class="container search-container">
+        <h2>Search for your future pet!</h2>
         <form action="pets.html" method="get">
           <p>
             <label for="searchbox">
               <input
-                type="text"
-                name="searchbox"
+                type="number"
+                name="location"
                 id="searchbox"
-                placeholder="Enter your desired city"
+                placeholder="Enter your 5 digit zipcode"
               />
             </label>
           </p>
           <p class="choices">
             <label for="dogs">
-              <input type="checkbox" class="filled-in" id="dogs" name="pet_types" value="dogs"/>
+              <input type="radio" class="filled-in" id="dogs" name="pet_types" value="dog"/>
               <span class="animalName">Dogs</span>
             </label>
-          </p>
-          <p class="choices">
+        
             <label for="cats">
-              <input type="checkbox" class="filled-in" id="cats" name="pet_types" value="cats"/>
+              <input type="radio" class="filled-in" id="cats" name="pet_types" value="cat"/>
               <span class="animalName">Cats</span>
             </label>
-          </p>
-          <p class="choices">
+          
             <label for="rabbits">
-              <input type="checkbox" class="filled-in" id="rabbits" name="pet_types" value="rabbits"/>
+              <input type="radio" class="filled-in" id="rabbits" name="pet_types" value="rabbit"/>
               <span class="animalName">Rabbits</span>
             </label>
-          </p>
-          <p class="choices">
-            <label for="other">
-              <input type="checkbox" class="filled-in" id="small_furry" name="pet_types" value="other"/>
+          
+            <label for="small_furry">
+              <input type="radio" class="filled-in" id="small_furry" name="pet_types" value="small_furry"/>
               <span class="animalName">Small and Furry</span>
             </label>
-          </p>
-          <p class="choices">
-            <label for="other">
-              <input type="checkbox" class="filled-in" id="horse" name="pet_types" value="other"/>
+         
+            <label for="horse">
+              <input type="radio" class="filled-in" id="horse" name="pet_types" value="horse"/>
               <span class="animalName">Horse</span>
             </label>
-          </p>
-          <p class="choices">
-            <label for="other">
-              <input type="checkbox" class="filled-in" id="bird" name="pet_types" value="other"/>
+         
+            <label for="bird">
+              <input type="radio" class="filled-in" id="bird" name="pet_types" value="bird"/>
               <span class="animalName">Bird</span>
             </label>
-          </p>
-          <p class="choices">
-            <label for="other">
-              <input type="checkbox" class="filled-in" id="fish" name="pet_types" value="other"/>
+         
+            <label for="fish">
+              <input type="radio" class="filled-in" id="fish" name="pet_types" value="fish"/>
               <span class="animalName">Scales and Fins</span>
             </label>
-          </p>
-          <p class="choices">
-            <label for="other">
-              <input type="checkbox" class="filled-in" id="barnyard" name="pet_types" value="other"/>
+         
+            <label for="barnyard">
+              <input type="radio" class="filled-in" id="barnyard" name="pet_types" value="barnyard"/>
               <span class="animalName">Barnyard</span>
             </label>
           </p>
@@ -135,7 +126,7 @@
     </main>
     
     <!-- Fixed Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer blue-grey darken-1">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
@@ -146,17 +137,16 @@
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
               <ul>
+                <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
+                <li><a class="grey-text text-lighten-3" href="why.html">Why</a></li>
                 <li><a class="grey-text text-lighten-3" href="contact.html">Contact Us</a></li>
                 <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
-                <li><a class="grey-text text-lighten-3" href="favorites.html">Favorites</a></li>
-                <li><a class="grey-text text-lighten-3" href="pets.html">Pets</a></li> 
-                <li><a class="grey-text text-lighten-3" href="why.html">Why</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright blue-grey darken-2">
         <div class="container">
           © 2014 Copyright Text
           <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
