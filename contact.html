@@ -50,7 +50,7 @@
           <div class="row valign-wrapper">
             <div class="col s2">
               <!-- Responsive image with circular border -->
-              <img src="https://zotline.communications.uci.edu/wp-content/uploads/2016/09/dce-building.jpg" alt="" class="circle responsive-img"> 
+              <img src="https://zotline.communications.uci.edu/wp-content/uploads/2016/09/dce-building.jpg" alt="Picture of our very real office" class="circle responsive-img"> 
             </div>
             <div class="col s10">
               <span class="black-text">
@@ -59,6 +59,17 @@
                 (555)555-5555 <br><br>
                 mailto:fakemail@fakemail.com
               </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container for random dog image -->
+    <div class="container">
+      <br>
+        <div class="card-panel grey lighten-5 z-depth-1 center-align">
+              <!-- Responsive random dog image -->
+              <img src="" id="dog_img" alt="Random Dog Photo" class = "responsive-img" style="margin: 0 auto;" />
             </div>
           </div>
         </div>
@@ -95,6 +106,7 @@
 </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".sidenav");
@@ -124,6 +136,28 @@
   }
 
 
+</script>
+
+<script>
+  const loadDogPic = () => {
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+      .then((res) => {
+        document.getElementById("dog_img").src = res.data.message;
+      })
+      .catch((res) => {
+        console.log("Failed to fetch random dog photo");
+        console.log(res);
+      });
+  };
+  loadDogPic();
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".sidenav");
+    var instances = M.Sidenav.init(elems, {
+      edge: "left",
+      draggable: false,
+    });
+  });
 </script>
       
 </body>
