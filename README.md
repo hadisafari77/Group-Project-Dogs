@@ -49,7 +49,7 @@ The user is able to save the adoptable pets to the local storage for later.
 
 
 # Screenshots
-![Screenshot](Screenshots/Screenshot_2.png)
+![Screenshot]<img width="1440" alt="Screenshot 2021-12-01 at 09 49 59" src="https://user-images.githubusercontent.com/79026810/144287135-86e948df-f8c5-488b-b8fc-33c6cf69e3e1.png"> 
 ![Screenshot](Screenshots/Screenshot_1.png)
 ![Screenshot](Screenshots/Screenshot_3.png)
 ![Screenshot](Screenshots/Screenshot_4.png)
