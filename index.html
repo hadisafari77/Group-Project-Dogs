@@ -59,9 +59,11 @@
 
     <main>
       <!-- Container for the random image -->
-      <div class="container image-container" style="display:block; height:400px; text-align:center">
-        <img src="" id="dog_img" alt="Dog Photo" style="height:100%; margin: 0 auto;"/>
-      </div>
+      <div class="container">
+        <br>
+        <div class="card-panel grey lighten-5 z-depth-1 center-align">
+          <!-- Responsive random dog image -->
+          <img src="" id="dog_img" alt="Random Dog Photo" class="responsive-img" style="margin: 0 auto;" />
       <!-- Container for the search form -->
       <div class="container search-container">
         <h2>Search for your future pet!</h2>
@@ -76,47 +78,49 @@
               />
             </label>
           </p>
-          <p class="choices">
-            <label for="dogs">
-              <input type="radio" class="filled-in" id="dogs" name="pet_types" value="dog"/>
-              <span class="animalName">Dogs</span>
-            </label>
-        
-            <label for="cats">
-              <input type="radio" class="filled-in" id="cats" name="pet_types" value="cat"/>
-              <span class="animalName">Cats</span>
-            </label>
+            <p class="choices">
+              <label for="dogs">
+                <input type="radio" class="filled-in" id="dogs" name="pet_types" value="dog"/>
+                <span class="animalName">Dogs</span>
+              </label>
           
-            <label for="rabbits">
-              <input type="radio" class="filled-in" id="rabbits" name="pet_types" value="rabbit"/>
-              <span class="animalName">Rabbits</span>
-            </label>
+              <label for="cats">
+                <input type="radio" class="filled-in" id="cats" name="pet_types" value="cat"/>
+                <span class="animalName">Cats</span>
+              </label>
+            
+              <label for="rabbits">
+                <input type="radio" class="filled-in" id="rabbits" name="pet_types" value="rabbit"/>
+                <span class="animalName">Rabbits</span>
+              </label>
+            
+              <label for="small_furry">
+                <input type="radio" class="filled-in" id="small_furry" name="pet_types" value="small-furry"/>
+                <span class="animalName">Small and Furry</span>
+              </label>
           
-            <label for="small_furry">
-              <input type="radio" class="filled-in" id="small_furry" name="pet_types" value="small-furry"/>
-              <span class="animalName">Small and Furry</span>
-            </label>
-         
-            <label for="horse">
-              <input type="radio" class="filled-in" id="horse" name="pet_types" value="horse"/>
-              <span class="animalName">Horse</span>
-            </label>
-         
-            <label for="bird">
-              <input type="radio" class="filled-in" id="bird" name="pet_types" value="bird"/>
-              <span class="animalName">Bird</span>
-            </label>
-         
-            <label for="fish">
-              <input type="radio" class="filled-in" id="fish" name="pet_types" value="scales-fins-other"/>
-              <span class="animalName">Scales and Fins</span>
-            </label>
-         
-            <label for="barnyard">
-              <input type="radio" class="filled-in" id="barnyard" name="pet_types" value="barnyard"/>
-              <span class="animalName">Barnyard</span>
-            </label>
-          </p>
+              <label for="horse">
+                <input type="radio" class="filled-in" id="horse" name="pet_types" value="horse"/>
+                <span class="animalName">Horse</span>
+              </label>
+          
+              <label for="bird">
+                <input type="radio" class="filled-in" id="bird" name="pet_types" value="bird"/>
+                <span class="animalName">Bird</span>
+              </label>
+          
+              <label for="fish">
+                <input type="radio" class="filled-in" id="fish" name="pet_types" value="scales-fins-other"/>
+                <span class="animalName">Scales and Fins</span>
+              </label>
+          
+              <label for="barnyard">
+                <input type="radio" class="filled-in" id="barnyard" name="pet_types" value="barnyard"/>
+                <span class="animalName">Barnyard</span>
+              </label>
+            </p>
+            <br>
+          </div>
           <!-- Search button for form -->
           <button class="btn waves-effect waves-light" type="submit">
             Search
