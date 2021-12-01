@@ -53,3 +53,5 @@ The user is able to save the adoptable pets to the local storage for later.
 <img width="1438" alt="Screenshot 2021-12-01 at 09 50 28" src="https://user-images.githubusercontent.com/79026810/144287533-d3fe3a63-89fa-4afc-ac3d-ff34a1701446.png">
 <img width="1440" alt="Screenshot 2021-12-01 at 09 50 53" src="https://user-images.githubusercontent.com/79026810/144287572-2bfc030c-f613-4238-a290-d850c402e9d8.png">
 <img width="1440" alt="Screenshot 2021-12-01 at 09 51 28" src="https://user-images.githubusercontent.com/79026810/144287588-312d38f3-ba08-48df-8b46-c765e0373e83.png">
+<img width="1440" alt="Screenshot 2021-12-01 at 09 56 53" src="https://user-images.githubusercontent.com/79026810/144287908-02461cf1-0d48-4050-9819-93a634e58e9e.png">
+<img width="1440" alt="Screenshot 2021-12-01 at 09 57 16" src="https://user-images.githubusercontent.com/79026810/144287917-ea924c62-7f68-42ba-a7c7-48a3ac1ce8aa.png">
